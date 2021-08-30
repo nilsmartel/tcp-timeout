@@ -1,7 +1,7 @@
-#!/usr/local/bin/node
+#!/usr/local/bin/ts-node
 
 function help() {
-  console.log("tsx-timeout <csv sampel rtt> <alpha> <beta> <deviatio>\n")
+  console.log("tsx-timeout <csv sampel rtt> <alpha> <beta> <deviation>\n")
   process.exit()
 }
 
@@ -15,8 +15,6 @@ let beta = Number(process.argv[4])
 let deviation = Number(process.argv[5])
 
 if (isNaN(alpha) || isNaN(beta) || isNaN(deviation)) help()
-
-let outputFile = process.argv[7]
 
 function parseCsv(inp: string): string[][] {
   return inp.toString().split(/\n/g).map(line => line.split(","))
